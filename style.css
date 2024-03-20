@@ -47,19 +47,3 @@ text {
 // }
 
 
-a {
-  font-style: italic;
-  color: #999;
-  }
-H3 {
-  margin-bottom: .5rem;
-  font: 1.5em/1 'Leckerli One';
-  color: skyblue;
-  }
-
-.links {
-  margin: 3em auto 0;
-  font-size: 16px;
-  line-height: 1.4;
-  text-align: left;
-  }
