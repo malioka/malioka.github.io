@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'Leckerli One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Leckerli One'), local('LeckerliOne-Regular'), url(https://themes.googleusercontent.com/static/fonts/leckerlione/v5/S2Y_iLrItTu8kIJTkS7DrKRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+}
+
+
+HTML, BODY {
+  height: 100%;
+  }
+
+BODY {
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+    
+  background: linear-gradient(-45deg,
+    rgba(255,255,255,0) 50%,
+      #EFEFEF 52.5%, 
+      rgba(255,255,255,0) 55%),
+    linear-gradient(45deg, 
+      rgba(255,255,255,0) 50%,
+      #EFEFEF 52.5%, 
+      rgba(255,255,255,0) 55%);
+  background-size: 1.5em 1.5em;
+  background-color: #FFF;
+  font-size: 10px;
+  }
+
+.wrapper {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  line-height: 1;
+  }
+text { 
+      fill: url(#p-stripes);
+      font-family: 'Leckerli One';
+      font-size: 25em;
+      }
+// SVG {
+//   border: 1px solid;
+// }
+// .wrapper {
+//   border: 1px solid;
+// }
+
+
+a {
+  font-style: italic;
+  color: #999;
+  }
+H3 {
+  margin-bottom: .5rem;
+  font: 1.5em/1 'Leckerli One';
+  color: skyblue;
+  }
+
+.links {
+  margin: 3em auto 0;
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: left;
+  }
