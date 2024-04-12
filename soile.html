@@ -1,38 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG Composition</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Пример веб-страницы</title>
+<style>
+    body {
+        background-image: url("img/cat/cat.png.png");
+        background-size: cover;
+        color: white;
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .cat-img {
+        max-width: 50px; /* Уменьшаем ширину изображения */
+        height: auto;
+        display: none;
+        margin: 20px auto;
+        border-radius: 10px;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-  <div class="wrapper"><svg  width="740" height="200">
-    <defs>
-        <linearGradient id="MyGradient" x1="0" y1="0" x2="100%" y2="0%"> <!--20% spreadMethod="repeat"-->
-          <stop offset="0%" stop-color="crimson" /><stop offset="10%" stop-color="purple" />
-          <stop offset="10%" stop-color="red" /><stop offset="20%" stop-color="crimson" />
-          <stop offset="20%" stop-color="orangered" /><stop offset="30%" stop-color="red" />
-          <stop offset="30%" stop-color="orange" /><stop offset="40%" stop-color="orangered" />
-          <stop offset="40%" stop-color="gold" /><stop offset="50%" stop-color="orange" />
-          <stop offset="50%" stop-color="yellowgreen" /><stop offset="60%" stop-color="gold" />
-          <stop offset="60%" stop-color="green" /><stop offset="70%" stop-color="yellowgreen" />
-          <stop offset="70%" stop-color="steelblue" /><stop offset="80%" stop-color="skyblue" />
-          <stop offset="80%" stop-color="mediumpurple" /><stop offset="90%" stop-color="steelblue" />
-          <stop offset="90%" stop-color="purple" /><stop offset="100%" stop-color="mediumpurple" />
-        </linearGradient>
-      
-        <pattern id="p-stripes" 
-                 patternUnits="userSpaceOnUse"
-                 width="200" height="200" 
-                 viewbox="0 0 200 200">
-          <rect width="200" height="200"
-                  fill="url(#MyGradient)"/>
-        </pattern>
-      </defs>
-  
-    <text x="0" y="96%">Hello!</text>
-  </svg>
+<div class="container">
+    <h1>Рассказ про котов и мышей</h1>
+    <p class="text">В самом сердце города, где узкие улочки переплетаются среди высоких зданий, находился дом, который обитали <span class="cat-word">коты</span>. Каждый из них был неповторим по своему характеру: отважный и игривый, ленивый и любознательный, гордый и дружелюбный. Они жили в своем маленьком мире, где самое важное было охотиться за мышами.</p>
+    <p class="text">Однажды в этот дом пришла мышь, которая не похожа на других. Она была смелой и любознательной, и не испытывала страха перед <span class="cat-word">котами</span>. Ее звали Чеддар, и она решила исследовать этот новый мир.</p>
+    <p class="text">Коты были поражены таким отвагой. Они наблюдали за Чеддаром с изумлением и уважением, не зная, как реагировать. Некоторые из них хотели поймать ее, но другие были восхищены ее дерзостью.</p>
+    <p class="text">Чеддар поняла, что у нее есть много друзей среди <span class="cat-word">котов</span>. Они помогали ей и защищали от опасностей. А <span class="cat-word">коты</span>, в свою очередь, научились смотреть на мир с другой стороны, понимая, что дружба может быть сильнее, чем вражда.</p>
+    <p class="text">Так, <span class="cat-word">коты</span> и мыши стали не просто врагами, а настоящими друзьями, готовыми поддержать друг друга в любой ситуации.</p>
 </div>
+<a href="index.html">Вернуться на главную</a>
+<script>
+$(document).ready(function() {
+    // Заменяем слово "кот" на изображение кота и добавляем обработчики событий
+    $("p:contains('кот')").each(function(){
+        var html = $(this).html();
+        html = html.replace(/кот/gi, '<span class="cat-word">кот</span>');
+        $(this).html(html);
+    });
+
+    // При наведении на слово "кот", заменяем его на изображение кота
+    $('body').on('mouseenter', '.cat-word', function() {
+        var img = $('<img>', {
+            src: 'img/cat/caaaat.png',
+            alt: 'Dede',
+            height: '100', // Устанавливаем высоту изображения
+            width: '100', // Устанавливаем ширину изображения
+            class: 'cat-img'
+        });
+        $(this).replaceWith(img);
+        img.fadeIn('fast');
+    });
+
+    // При убирании мыши с изображения кота, возвращаем слово "кот"
+    $('body').on('mouseleave', '.cat-img', function() {
+        var word = $('<span>', {
+            text: 'кот',
+            class: 'cat-word'
+        });
+        $(this).replaceWith(word);
+        word.fadeIn('fast');
+    });
+});
+
+
+</script>
+
 </body>
 </html>
