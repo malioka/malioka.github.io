@@ -1,11 +1,16 @@
+/* Устанавливаем box-sizing для всех элементов */
 * {
   box-sizing: border-box;
 }
+
+/* Устанавливаем отступы и поля для body */
 body {
   margin: 0;
   padding: 0;
 }
-.map{
+
+/* Стили для контейнера карты */
+.map {
   position: relative;
   text-align: center;
   display: flex;
@@ -13,81 +18,77 @@ body {
   justify-content: center;
 }
 
+/* Стили для SVG-элемента (карты) */
 svg {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  fill: rgba(132, 132, 142, 0.477); /* Set initial fill color with 30% opacity */
+  fill: rgba(132, 132, 142, 0.477); /* Устанавливаем начальный цвет заливки с прозрачностью 30% */
 }
 
-
+/* Стили для областей (voivodeships) на карте */
 .voivodeship {
-  fill: none;
-  stroke: #000;
-  stroke-width: 5px;
-  cursor: pointer;
-  pointer-events: all;
+  fill: none; /* Не заполняем области цветом */
+  stroke: #000; /* Цвет границ областей */
+  stroke-width: 5px; /* Ширина границ областей */
+  cursor: pointer; /* Изменяем курсор при наведении на область */
+  pointer-events: all; /* Разрешаем события указателя мыши для областей */
 }
 
+/* Стили для областей при наведении */
 .voivodeship:hover {
-  animation: highlightVoivodeship 2s linear infinite;
+  animation: highlightVoivodeship 2s linear infinite; /* Анимация при наведении на область */
 }
+
+/* Стили для фонового блока информации (info__bg) */
 .info__bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 20px;
-  box-sizing: border-box;
-  width: 300px;
-  height: 400px;
-  background: rgba(0,0,0,0.5);
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  left: 50px;
-  bottom: calc(50% - 200px) ;
-  opacity: 0;
-  transition: 0.3s all;
-  pointer-events: none;
-  z-index: 10;
+  position: fixed; /* Фиксированное положение блока */
+  top: 0; /* Размещение блока вверху */
+  left: 0; /* Размещение блока слева */
+  padding: 20px; /* Отступы блока */
+  box-sizing: border-box; /* Устанавливаем box-sizing */
+  width: 300px; /* Ширина блока */
+  height: 400px; /* Высота блока */
+  background: rgba(0, 0, 0, 0.5); /* Цвет фона блока с прозрачностью 50% */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Тень блока */
+  left: 50px; /* Отступ слева */
+  bottom: calc(50% - 200px); /* Расположение блока по вертикали по центру */
+  opacity: 0; /* Начальная непрозрачность блока */
+  transition: 0.3s all; /* Плавный переход */
+  pointer-events: none; /* Запрещаем события указателя мыши для блока */
+  z-index: 10; /* Индекс поиска блока */
 }
+
+/* Стили для активного фонового блока информации */
 .info__bg.active {
-  pointer-events: all;
-  opacity: 1;
-  transition: 0.3s all;
+  pointer-events: all; /* Разрешаем события указателя мыши для активного блока */
+  opacity: 1; /* Устанавливаем полную непрозрачность для активного блока */
+  transition: 0.3s all; /* Плавный переход */
 }
 
+/* Стили для подсказки (tooltip) */
 .tooltip {
-  position: absolute;
-  display: none; /* Начально скрыть подсказку */
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 5px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-  z-index: 999; /* Отображение поверх других элементов */
+  position: absolute; /* Абсолютное позиционирование подсказки */
+  display: none; /* Начально скрываем подсказку */
+  background-color: rgba(255, 255, 255, 0.9); /* Цвет фона подсказки с прозрачностью 90% */
+  padding: 5px; /* Отступы подсказки */
+  border-radius: 5px; /* Закругление углов подсказки */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Тень подсказки */
+  z-index: 999; /* Индекс поиска подсказки */
 }
 
-.info__bg {
-  position: fixed;
-  top: 50%; /* Разместить по вертикали по центру */
-  left: 50%; /* Разместить по горизонтали по центру */
-  transform: translate(-50%, -50%); /* Центрировать относительно своей ширины и высоты */
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  display: none; /* Начально скрыть информационное окно */
-  z-index: 999; /* Отображение поверх других элементов */
-}
-
+/* Стили для заголовка информационного блока */
 .info__title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-size: 18px; /* Размер шрифта заголовка */
+  font-weight: bold; /* Жирное начертание */
+  margin-bottom: 10px; /* Отступ снизу */
 }
 
+/* Стили для текста информационного блока */
 .info__text {
-  font-size: 16px;
+  font-size: 16px; /* Размер шрифта текста */
 }
 
 /* Опциональные стили для подсвечиваемых участков */
@@ -95,10 +96,8 @@ svg {
   transition: fill 0.3s ease; /* Плавное изменение цвета */
 }
 
+/* Опциональные стили для подсвечиваемых участков при наведении */
 .book:hover {
-  fill: rgba(255, 184, 53, 0.858); /* Цвет при наведении */
-  opacity: 0.5;
+  fill: rgba(255, 184, 53, 0.858); /* Цвет заливки при наведении с прозрачностью 85.8% */
+  opacity: 0.5; /* Непрозрачность при наведении */
 }
-
-
-
