@@ -10,10 +10,16 @@
   <nav id="main-nav">
     <ul id="navbar">
       <li id="til">
-        <a href="кк.html">Рус</a>
+        <a href="#">Рус</a>
         <ul id="til-submenu">
-          <li><a href="кк.html">Каз</a></li>
-          <li><a href="кк.html">Англ</a></li>
+          <li><a href="di.html">Диаграмма</a></li>
+          <li>
+            <!-- Гиперссылка, при клике на которую будет открываться новое окно -->
+            <a href="javascript:void(0);" onclick="openNewWindow()">Открыть новое окно</a>
+            <!-- Подключение внешнего JavaScript файла -->
+            <script src="JS/external.js"></script>
+          </li>
+          <li><a href="map.html">Карта</a></li>
         </ul>
       </li>
       <li id="home"><a href="index.html">Главная</a></li>
@@ -28,7 +34,7 @@
         </ul>
       </li>
       <li id="language-test">
-        <a href="language-test/html">Языковой тест</a>
+        <a href="language-test.html">Языковой тест</a>
         <ul id="language-test-submenu">
           <li><a href="language-test/russian_test.html">Русский</a></li>
           <li><a href="language-test/kazakh_test.html">Казахский</a></li>
@@ -38,9 +44,9 @@
       <li id="logotip">
         <a href="soile.html">Soile</a>
         <ul id="logotip-submenu">
-            <li><a href="login/login.html">Вход</a></li>
-            <li><a href="login/registration.html">Регистрация</a></li>
-          <li><a href="кк.html">Ошибка</a></li>
+          <li><a href="login/login.html">Вход</a></li>
+          <li><a href="login/registration.html">Регистрация</a></li>
+          <li><a href="login/error.html">Ошибка</a></li>
         </ul>
       </li>      
     </ul>
