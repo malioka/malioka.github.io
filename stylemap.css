@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.map{
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  fill: rgba(132, 132, 142, 0.477); /* Set initial fill color with 30% opacity */
+}
+
+
+.voivodeship {
+  fill: none;
+  stroke: #000;
+  stroke-width: 5px;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.voivodeship:hover {
+  animation: highlightVoivodeship 2s linear infinite;
+}
+.info__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 300px;
+  height: 400px;
+  background: rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  left: 50px;
+  bottom: calc(50% - 200px) ;
+  opacity: 0;
+  transition: 0.3s all;
+  pointer-events: none;
+  z-index: 10;
+}
+.info__bg.active {
+  pointer-events: all;
+  opacity: 1;
+  transition: 0.3s all;
+}
+
+.tooltip {
+  position: absolute;
+  display: none; /* Начально скрыть подсказку */
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  z-index: 999; /* Отображение поверх других элементов */
+}
+
+.info__bg {
+  position: fixed;
+  top: 50%; /* Разместить по вертикали по центру */
+  left: 50%; /* Разместить по горизонтали по центру */
+  transform: translate(-50%, -50%); /* Центрировать относительно своей ширины и высоты */
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  display: none; /* Начально скрыть информационное окно */
+  z-index: 999; /* Отображение поверх других элементов */
+}
+
+.info__title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.info__text {
+  font-size: 16px;
+}
+
+/* Опциональные стили для подсвечиваемых участков */
+.book {
+  transition: fill 0.3s ease; /* Плавное изменение цвета */
+}
+
+.book:hover {
+  fill: rgba(255, 184, 53, 0.858); /* Цвет при наведении */
+  opacity: 0.5;
+}
+
+
+
