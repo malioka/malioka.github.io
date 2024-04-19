@@ -15,7 +15,28 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
+/* Стили для мобильных устройств */
+@media only screen and (max-width: 600px) {
+  /* Изменение размеров логотипа */
+  #logotip a {
+    font-size: 14px;
+  }
+  /* Установка вертикального размещения элементов */
+  #navbar {
+    flex-direction: column;
+  }
+}
+
+/* Стили для планшетов и десктопов */
+@media only screen and (min-width: 601px) {
+  /* Увеличение размеров логотипа */
+  #logotip a {
+    font-size: 18px;
+  }
 /* Анимация для основного меню */
 @keyframes menuAnimation {
   0% { transform: translateY(0); }
