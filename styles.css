@@ -2,13 +2,18 @@
 body {
   font-family: "Times New Roman", Times, serif;
   font-size: 20px;
-  letter-spacing:normal;
-  color:#ffffff;
-  vertical-align:none;
-  text-align:center;
-  line-height:normal;
-  text-transform:none;
+  letter-spacing: normal;
+  color: #000000;
+  vertical-align: none;
+  text-align: center;
+  line-height: normal;
+  text-transform: none;
+  margin: 0; /* Убираем отступы у body */
+  padding: 0; /* Убираем отступы у body */
+}
 
+#main-nav {
+  background-color: #a3a2a2;
 }
 
 #navbar {
@@ -16,89 +21,58 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-/* Стили для мобильных устройств */
-@media only screen and (max-width: 600px) {
-  /* Изменение размеров логотипа */
-  #logotip a {
-    font-size: 14px;
-  }
-  /* Установка вертикального размещения элементов */
-  #navbar {
-    flex-direction: column;
-  }
-}
-
-/* Стили для планшетов и десктопов */
-@media only screen and (min-width: 601px) {
-  /* Увеличение размеров логотипа */
-  #logotip a {
-    font-size: 18px;
-  }
-/* Анимация для основного меню */
-@keyframes menuAnimation {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-  100% { transform: translateY(0); }
+  flex-wrap: wrap; /* Позволим элементам переноситься на новую строку */
+  justify-content: space-between; /* Распределяем элементы равномерно по контейнеру */
 }
 
 #navbar li {
   display: inline-block;
-  position: relative;
+  position: relative; /* Добавим относительное позиционирование для подменю */
 }
-/* Стили для основного меню */
-#navbar li:hover {
-  animation: menuAnimation 0.5s forwards;
+
+#navbar li:hover ul {
+  display: block;
 }
 
 #navbar li a {
   display: block;
   padding: 10px 20px;
   text-decoration: none;
-  color: #fafafa; /* цвет текста */
-  font-weight: bold; /* Жирный шрифт */
-  transition: color 0.3s; /* Плавное изменение цвета текста при наведении */
+  color: #fafafa;
+  font-weight: bold;
 }
 
-/* Анимация для выпадающего подменю */
-@keyframes submenuAnimation {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-  100% { transform: translateY(0); }
-}
-/* Стили для выпадающего подменю */
 #navbar ul {
   display: none;
   position: absolute;
-  top: 100%;
+  top: 100%; /* Подменю будут отображаться под родительскими элементами */
   left: 0;
   background-color: #b1b1b1;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 200px; /* Ширина подменю */
 }
 
 #navbar ul li {
   display: block;
 }
 
-/* Стили для активного пункта меню */
-#navbar li:hover > a {
-  color: #000000; /* Изменяем цвет текста при наведении */
+/* Добавим стили для меню на мобильных устройствах */
+@media only screen and (max-width: 600px) {
+  #navbar {
+    flex-direction: column; /* Располагаем элементы вертикально */
+  }
+
+  #navbar li {
+    width: 100%; /* Занимают всю ширину */
+  }
+
+  #navbar ul {
+    position: static; /* Перестаем абсолютно позиционировать подменю */
+    width: auto; /* Автоматическая ширина */
+    box-shadow: none; /* Убираем тень */
+  }
 }
 
-/* Стили для выпадающего подменю */
-#navbar li:hover ul {
-  display: block;
-  animation: submenuAnimation 0.5s forwards;
-}
-
-
-
-/* Стили для главного меню */
-#main-nav {
-  background-color: #a3a2a2;
-}
 
 #main-nav #navbar li {
   border-right: 1px solid #666;
