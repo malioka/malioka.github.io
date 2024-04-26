@@ -12,64 +12,92 @@ body {
   padding: 0; /* Убираем отступы у body */
 }
 
+/* Общие стили для меню */
+/* Общие стили для меню */
 #main-nav {
-  background-color: #a3a2a2;
+  background-color: #333; /* Цвет фона */
+  padding: 10px 0; /* Внутренние отступы */
 }
 
 #navbar {
-  list-style-type: none;
+  list-style-type: none; /* Убираем маркеры списка */
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap; /* Позволим элементам переноситься на новую строку */
-  justify-content: space-between; /* Распределяем элементы равномерно по контейнеру */
+  justify-content: center; /* Выравнивание по центру */
 }
 
 #navbar li {
-  display: inline-block;
-  position: relative; /* Добавим относительное позиционирование для подменю */
+  position: relative;
 }
 
-#navbar li:hover ul {
-  display: block;
-}
-
+/* Стили для основных ссылок меню */
 #navbar li a {
   display: block;
   padding: 10px 20px;
   text-decoration: none;
-  color: #fafafa;
-  font-weight: bold;
+  color: #fff; /* Цвет текста */
+  transition: background-color 0.3s; /* Плавное изменение цвета фона при наведении */
 }
 
+#navbar li:hover a {
+  background-color: #555; /* Цвет фона при наведении */
+}
+
+/* Стили для подменю */
 #navbar ul {
   display: none;
   position: absolute;
-  top: 100%; /* Подменю будут отображаться под родительскими элементами */
-  left: 0;
-  background-color: #b1b1b1;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #333; /* Цвет фона */
+  padding: 0; /* Убираем внутренние отступы */
+  margin: 0; /* Убираем внешние отступы */
+}
+
+#navbar li:hover ul {
+  display: block;
   width: 200px; /* Ширина подменю */
 }
 
 #navbar ul li {
-  display: block;
+  width: 100%; /* Ширина элементов подменю */
+  list-style: none; /* Убираем маркеры списка */
 }
 
-/* Добавим стили для меню на мобильных устройствах */
+#navbar ul li a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff; /* Цвет текста */
+}
+
+#navbar ul li:hover a {
+  background-color: #555; /* Цвет фона при наведении */
+}
+
+
+
+/* Стили для мобильных устройств */
 @media only screen and (max-width: 600px) {
   #navbar {
-    flex-direction: column; /* Располагаем элементы вертикально */
+    flex-direction: column; /* Отображение пунктов меню вертикально на мобильных устройствах */
   }
 
   #navbar li {
-    width: 100%; /* Занимают всю ширину */
+    position: static; /* Сброс позиции для основных пунктов меню */
+    margin-bottom: 5px; /* Отступ между пунктами меню */
   }
 
   #navbar ul {
-    position: static; /* Перестаем абсолютно позиционировать подменю */
-    width: auto; /* Автоматическая ширина */
-    box-shadow: none; /* Убираем тень */
+    position: static; /* Сброс позиции для подменю */
+    display: none; /* Скрытие подменю по умолчанию */
+  }
+
+  #navbar li:hover ul {
+    display: block; /* Отображение подменю при наведении */
+  }
+
+  #navbar ul li {
+    width: auto; /* Автоматическая ширина элементов подменю */
   }
 }
 
