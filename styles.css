@@ -98,12 +98,8 @@ body {
   #navbar ul li {
     width: auto; /* Автоматическая ширина элементов подменю */
   }
-  /* Уменьшаем размер текста в блоках */
-  .content-block p {
-    font-size: 16px;
-  }
-/* Добавляем стили для мобильных устройств */
-@media only screen and (max-width: 600px) {
+
+  /* Добавленные стили для блоков текста */
   #text-block {
     flex-direction: column; /* Отображаем блоки текста вертикально на мобильных устройствах */
     align-items: center; /* Выравниваем элементы по центру */
@@ -115,7 +111,6 @@ body {
   }
 }
 
-}
 
 #main-nav #navbar li {
   border-right: 1px solid #666;
