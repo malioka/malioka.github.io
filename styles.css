@@ -13,7 +13,6 @@ body {
 }
 
 /* Общие стили для меню */
-/* Общие стили для меню */
 #main-nav {
   background-color: #333; /* Цвет фона */
   padding: 10px 0; /* Внутренние отступы */
@@ -74,7 +73,6 @@ body {
   background-color: #555; /* Цвет фона при наведении */
 }
 
-
 /* Стили для мобильных устройств */
 @media only screen and (max-width: 600px) {
   #navbar {
@@ -101,15 +99,24 @@ body {
 
   /* Добавленные стили для блоков текста */
   #text-block {
-    flex-direction: column; /* Отображаем блоки текста вертикально на мобильных устройствах */
-    align-items: center; /* Выравниваем элементы по центру */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 20px;
   }
 
   .content-box {
-    width: 80%; /* Устанавливаем ширину блоков на мобильных устройствах */
-    margin-bottom: 20px; /* Добавляем отступ между блоками */
+    flex: 1 1 200px;
+    background-color: #f0f0f0; /* Светло-серый цвет фона */
+    border: 1px solid #000000; /* Черный бардюр */
+    border-radius: 10px; /* Закругленные края */
+    padding: 10px;
+    max-width: calc(50% - 40px);
   }
 }
+
 
 
 #main-nav #navbar li {
