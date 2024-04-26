@@ -13,6 +13,7 @@ body {
 }
 
 /* Общие стили для меню */
+/* Общие стили для меню */
 #main-nav {
   background-color: #333; /* Цвет фона */
   padding: 10px 0; /* Внутренние отступы */
@@ -73,6 +74,8 @@ body {
   background-color: #555; /* Цвет фона при наведении */
 }
 
+
+
 /* Стили для мобильных устройств */
 @media only screen and (max-width: 600px) {
   #navbar {
@@ -82,6 +85,7 @@ body {
   #navbar li {
     position: static; /* Сброс позиции для основных пунктов меню */
     margin-bottom: 5px; /* Отступ между пунктами меню */
+    width: 100%; /* Ширина пунктов меню на мобильных устройствах */
   }
 
   #navbar ul {
@@ -96,25 +100,25 @@ body {
   #navbar ul li {
     width: auto; /* Автоматическая ширина элементов подменю */
   }
+}
 
-  /* Добавленные стили для блоков текста */
-  #text-block {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    margin: 20px;
-  }
+/* Добавленные стили для блоков текста */
+#text-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 20px;
+}
 
-  .content-box {
-    flex: 1 1 200px;
-    background-color: #f0f0f0; /* Светло-серый цвет фона */
-    border: 1px solid #000000; /* Черный бардюр */
-    border-radius: 10px; /* Закругленные края */
-    padding: 10px;
-    max-width: calc(50% - 40px);
-  }
+.content-box {
+  flex: 1 1 200px;
+  background-color: #f0f0f0; /* Светло-серый цвет фона */
+  border: 1px solid #000000; /* Черный бардюр */
+  border-radius: 10px; /* Закругленные края */
+  padding: 10px;
+  max-width: calc(50% - 40px);
 }
 
 
@@ -133,6 +137,8 @@ body {
 /* Стили для основного контента */
 #main-content {
   display: flex;
+  flex-wrap: wrap; /* Добавляем перенос элементов на новую строку при необходимости */
+  justify-content: center; /* Выравнивание элементов по центру */
 }
 
 .content-block {
@@ -159,9 +165,9 @@ body {
 .content-block img {
   max-width: 100%;
   height: auto;
+  max-height: 350px; /* Ограничим максимальную высоту изображения */
 }
 
-/* Стили для футера */
 .footer-menu {
   display: flex;
   flex-wrap: wrap;
